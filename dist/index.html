@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/jpc.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Promo Widget</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Teko&display=swap"
+			rel="stylesheet"
+		/>
+		<script type="module" crossorigin src="/assets/index-BOgz8O48.js"></script>
+		<link rel="stylesheet" crossorigin href="/assets/index-Bdds3BPA.css">
+	</head>
+	<body>
+		<div id="root"></div>
+		<!-- <script type="module" src="/src/main.tsx"></script> -->
+		<script>
+			// TPI Integration
+			window.onload = bridgeApiInit;
+
+			function bridgeApiInit() {
+				window.parent.postMessage(
+					JSON.stringify({
+						Id: '91688eb1-3b7c-4e9e-967c-55ddc9980a7f',
+						Name: 'bridge_api_ready',
+						Type: 'NOTIFICATION'
+					}),
+					'*'
+				);
+
+				window.parent.postMessage(
+					JSON.stringify({
+						Id: '6272e6bd-ece7-48c2-8e64-8439e78f97e5',
+						Name: 'client_ready',
+						Type: 'NOTIFICATION'
+					}),
+					'*'
+				);
+			}
+
+			//Report App height to Lobby
+			let bodyHeight = 900;
+			const app_body = document.getElementById('app-body');
+
+			function reportWindowHeight() {
+				if (app_body && document.getElementById('external')) {
+					let bodyElementWidth = app_body.clientWidth;
+					bodyHeight = app_body.scrollHeight;
+
+					if (bodyElementWidth < 768) {
+						bodyHeight = 900;
+					}
+
+					console.log('height: ', bodyHeight);
+
+					window.parent.postMessage(
+						JSON.stringify({
+							Id: '6272e6bd-ece7-48c2-8e54-8439e78f37e5',
+							Name: 'set_window_size',
+							Type: 'REQUEST',
+							Body: {
+								height_pixels: bodyHeight
+							}
+						}),
+						'*'
+					);
+					console.log('iframe height posted via TPI');
+				}
+			}
+
+			window.onresize = reportWindowHeight();
+
+			// Test
+			window.addEventListener('resize', getSizes, false);
+
+			function getSizes() {
+				let outerWidth = window.outerWidth;
+				let innerWidth = window.innerWidth;
+				let zoom = (outerWidth / innerWidth) * 100;
+
+				console.log(
+					'outerWidth: ' +
+						outerWidth +
+						'\n' +
+						'innerWidth: ' +
+						innerWidth +
+						'\n' +
+						'zoom: ' +
+						zoom
+				);
+
+				if (zoom !== 100) {
+					reportWindowHeight();
+				}
+			}
+		</script>
+		<script>
+			WebFontConfig = {
+				google: {
+					families: ['Roboto:900']
+				}
+			};
+
+			(function (d) {
+				var wf = d.createElement('script'),
+					s = d.scripts[0];
+				wf.src =
+					'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+				wf.async = true;
+				s.parentNode.insertBefore(wf, s);
+			})(document);
+		</script>
+	</body>
+</html>

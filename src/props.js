@@ -1,0 +1,101 @@
+import betwayRim from './assets/images/betway-rim-lights.webp';
+import betwayGradient from './assets/images/betway-gradient.webp';
+import jpcGradient from './assets/images/gradient.webp';
+
+export const props = [
+	{
+		name: 'JPC',
+		borderColor: '#bababa',
+		borderWidth: 0,
+		buttonColor: 'bg-[#bd0aff]',
+		buttonHoverColor: 'hover:bg-[#c60aff]',
+		debug: false,
+		image: jpcGradient,
+		isInteractive: false,
+		items: [],
+		itemLabelAlign: 'center',
+		itemBackgroundColors: [
+			'#2b0448',
+			'#2ac9dd',
+			'#50176d',
+			'#0c0044',
+			'#ed0aff',
+			'#50176d',
+			'#2ac9dd',
+			'#50176d',
+			'#2b0448',
+			'#ed0aff'
+		],
+		itemLabelBaselineOffset: 0.25,
+		itemLabelColors: [
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff'
+		],
+		itemLabelFont: 'Roboto',
+		itemLabelFontSizeMax: 36,
+		itemLabelRadius: 0.8,
+		itemLabelRadiusMax: 0,
+		itemLabelRotation: 90,
+		itemLabelStrokeColor: '#ed0aff75',
+		itemLabelStrokeWidth: 3,
+		lineColor: '#bababa',
+		lineWidth: 3.5,
+		overlayImage: ''
+	},
+	{
+		name: 'Betway',
+		borderColor: '#b8b8b8',
+		borderWidth: 3,
+		buttonColor: 'bg-[#0054a4]',
+		buttonHoverColor: 'hover:bg-[#1a65ad]',
+		debug: false,
+		image: betwayGradient,
+		isInteractive: false,
+		items: [],
+		itemLabelAlign: 'center',
+		itemBackgroundColors: [
+			'#0422a5',
+			'#68cbe0',
+			'#049f9d',
+			'#0422a5',
+			'#68cbe0',
+			'#049f9d',
+			'#0422a5',
+			'#049f9d',
+			'#0422a5',
+			'#68cbe0'
+		],
+		itemLabelBaselineOffset: -0.5,
+		itemLabelColors: [
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff',
+			'#fff'
+		],
+		itemLabelFont: 'Teko',
+		itemLabelFontSize: 60,
+		itemLabelFontSizeMax: 60,
+		itemLabelRadius: 0.75,
+		itemLabelRadiusMax: 0.5,
+		itemLabelRotation: 90,
+		itemLabelStrokeColor: '#767e84',
+		itemLabelStrokeWidth: 1,
+		lineColor: '#000',
+		lineWidth: 3.5,
+		overlayImage: betwayRim
+	}
+];
